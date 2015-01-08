@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   
   get '/sizing',   to: 'static_pages#sizing'
   get '/contact', to: 'static_pages#contact'
-
+  resources :users
 
 
   # The priority is based upon order of creation: first created -> highest priority.
