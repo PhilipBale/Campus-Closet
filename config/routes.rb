@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'login', to: 'login#login'
+
   root to: 'static_pages#home'
   
   get '/sizing',   to: 'static_pages#sizing'
