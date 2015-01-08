@@ -1,0 +1,123 @@
+$cust-gold: rgb(213, 155, 0);
+$cust-blue: rgb(5, 25, 37);
+
+/* 
+rgb(213, 155, 0) Gold
+rgb(5, 25, 37) Blue
+	
+*/
+
+body {
+  padding-bottom: 20px;
+  background: url(/assets/techtoweropt.png) no-repeat center center fixed; 
+  background-size: cover;
+}
+
+.navbar {
+  margin-bottom: 20px;
+}
+
+.navbar {
+	background-color: rgba(5, 25, 37, 0.9);
+	border-color: rgba(5, 25, 37, 0.2);
+}
+
+.navbar .navbar-brand {
+	float: left;
+}
+
+.navbar .navbar-brand img{
+	margin-top: -40px;
+}
+
+.navbar .nav li { 
+	vertical-align: middle;
+}
+.navbar .nav li a,
+.navbar .nav li a:visited{
+	font-family: 'Open Sans', sans-serif;
+	color: #eee;	
+	font-size: 16px;
+}
+
+.navbar .nav .active a, 
+.navbar .nav .active a:hover
+{
+	background-color: $cust-gold;
+	color: white;
+}
+
+.navbar .nav li a:hover {
+	color: white;
+	text-decoration: underline;
+}
+
+.jumbotron {
+	margin-top: 40px;
+	padding: 20px;
+}
+
+.main-title {
+	margin-top: 0px;
+	margin-bottom: 5px;
+	color: $cust-blue;
+}
+
+.sub-title {
+	margin-top: 0px;	
+	margin-bottom: 15px;
+	
+	color: $cust-gold;
+}
+.sub-sections {
+	padding-left: 15px;
+	padding-right: 15px;	
+}
+
+.process,
+.info {
+	border-radius: 6px;
+	background-color: rgba(213, 155, 0, .9);
+	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+	padding: 10px;
+	margin-top: 15px;
+}
+
+.process h2,
+.info h2 {
+	text-align: center;
+	margin-top: 5px;
+	font-family: 'Open Sans', sans-serif;
+	color: $cust-blue;
+}
+
+.process .content,
+.info .content {
+  padding: 5px;
+  background-color: rgb(241, 231, 194);
+  border-radius: 2px;
+}
+
+.process ol { 
+  padding-left: 30px;
+}
+
+.process {
+  
+}
+.info {
+	text-align: center;
+}
+
+.footer {
+  margin-top: 20px;
+  padding: 10px;
+  width: 100%; 
+  border-radius: 6px;
+  background-color: rgba(5, 25, 37, 0.9);
+  border-color: rgba(5, 25, 37, 0.2);
+}
+
+.contact p {
+	font-size: 16px;	
+}

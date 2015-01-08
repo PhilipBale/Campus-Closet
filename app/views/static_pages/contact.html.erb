@@ -1,0 +1,73 @@
+<% provide(:title, 'Contact') %>
+  
+  
+  <!-- Main component for a primary marketing message or call to action -->
+  <div class="jumbotron">
+    <h1 class="main-title">Contact Us</h1>
+    <h4 class="sub-title">Let Campus Closet dress you to reach your goals</h4>
+    <div class="row"> 
+      <!-- Map Column -->
+      <div class="col-md-12"> 
+        <!-- Embedded Google Map -->
+        <iframe width="100%" height="400px" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d829.1359742719419!2d-84.39397113128278!3d33.772450214282955!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x8bce70bac090ab1d!2sBill+Moore+Student+Success+Center!5e0!3m2!1sen!2sus!4v1420433042459"></iframe>
+      </div>
+      <!-- Contact Details Column --> 
+      
+    </div>
+    <!-- /.row --> 
+    
+    <!-- Contact Form --> 
+    <!-- In order to set the email address and subject line for the contact form go to the bin/contact_me.php file. -->
+    <div class="row">
+      <div class="col-md-8 form">
+        <h2>Contact Form</h2>
+        <p>Please feel free to contact us about comments, qoutes, or questions</p>
+        <div class="status alert alert-success" style="display: none"></div>
+        <form id="main-contact-form" class="contact-form" name="contact-form" method="post" action="sendemail.php" role="form">
+          <div class="row">
+            <div class="col-sm-4">
+              <div class="form-group">
+                <input type="text" class="form-control" required="required" placeholder="Name">
+              </div>
+            </div>
+            <div class="col-sm-4">
+              <div class="form-group">
+                <input type="text" class="form-control" required="required" placeholder="Email address">
+              </div>
+            </div>
+            <div class="col-sm-4">
+              <div class="form-group">
+                <input type="text" class="form-control" required="required" placeholder="Subject">
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group">
+                <textarea name="message" id="message" required class="form-control" rows="5" placeholder="Message"></textarea>
+              </div>
+              <div class="form-group">
+                <button type="submit" class="btn btn-primary btn-lg">Send Message</button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="col-md-4 contact">
+        <h3>Contact Details</h3>
+        <p> Bill Moore Student Success Center 
+          2nd Floor <br />Center for Career Discovery and Development<br>
+          Closet can be be found on the basement level<br>
+        </p>
+        <p><i class="fa fa-envelope-o"></i> <abbr title="Email">E</abbr>: <a href="mailto:gtcampuscloset@gatech.edu">gtcampuscloset@gatech.edu</a> </p>
+        <p><i class="fa fa-clock-o"></i> <abbr title="Hours">H</abbr>: Monday - Friday: 9:00 AM to 5:00 PM</p>
+        <ul class="list-unstyled list-inline list-social-icons">
+          <li> <a href="#"><i class="fa fa-facebook-square fa-2x"></i></a> </li>
+          <li> <a href="#"><i class="fa fa-linkedin-square fa-2x"></i></a> </li>
+          <li> <a href="#"><i class="fa fa-twitter-square fa-2x"></i></a> </li>
+          <li> <a href="#"><i class="fa fa-google-plus-square fa-2x"></i></a> </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  
