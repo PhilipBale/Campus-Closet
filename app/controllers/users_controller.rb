@@ -12,7 +12,7 @@ class UsersController < ApplicationController
 		@user = User.new(user_params)    # Not the final implementation!
 	    if @user.save
 	      flash[:success] = "Succesful Registration"
-	      redirect_to root_path
+	      render 'login/login'
 	    else
 	      render 'login/login'
 	    end

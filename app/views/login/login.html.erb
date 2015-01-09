@@ -26,18 +26,18 @@
               <%= f.submit "Register", class: "btn btn-success", style: "width: 100%" %>
           <% end %> 
               
-
+          <%= form_for(:session, url: login_path) do |f| %>
             <hr />
             <h5 style="margin-bottom: 10px">Already Registered?</h5>
-            <form role="form" action="" method="post" name="login">
+
               <div class="form-group input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-comment"></i></span>
-                <input type="text" class="form-control" placeholder="Your Email" name="email"/>
+                <%= f.text_field :email, class: "form-control", placeholder: "Your Email" %>
               </div>
               <div class="form-group input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-lock"  ></i></span>
-                <input type="password" class="form-control" placeholder="Enter Password" name="password"/>
+                <%= f.password_field :password, class: "form-control", placeholder: "Enter Password" %>
               </div>
-              <button class="btn btn-primary " type="submit" id="login_user" style="width: 100%">Login</button>
-            </form>
+              <%= f.submit "Login", class: "btn btn-primary", style: "width: 100%" %>
+          <% end %>
           </div>
         </div>
       </div>
