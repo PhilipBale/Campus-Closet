@@ -1,0 +1,29 @@
+# == Schema Information
+#
+# Table name: clothings
+#
+#  id            :integer          not null, primary key
+#  clothing_code :string
+#  clothing_type :string
+#  gender        :string
+#  color         :string
+#  size          :string
+#  created_at    :datetime         not null
+#  updated_at    :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  clothing_code: MyString
+  clothing_type: MyString
+  gender: MyString
+  color: MyString
+  size: MyString
+
+two:
+  clothing_code: MyString
+  clothing_type: MyString
+  gender: MyString
+  color: MyString
+  size: MyString

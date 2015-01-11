@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'clothing/new'
+
   get 'sessions/new'
 
   get 'login', to: 'login#login'
@@ -10,6 +12,7 @@ Rails.application.routes.draw do
   
   get '/sizing',   to: 'static_pages#sizing'
   get '/contact', to: 'static_pages#contact'
+  get '/borrow', to: 'borrow#borrow'
   resources :users
 
 

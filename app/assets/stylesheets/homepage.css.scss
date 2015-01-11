@@ -13,13 +13,36 @@ body {
   background-size: cover;
 }
 
+.center {
+	text-align: center;
+}
+
 .navbar {
   margin-bottom: 20px;
 }
 
+
+ 
+.nav .dropdown-menu li a:hover{
+	background-color: inherit !important;
+	color: #eee !important;
+}
+
+.nav .dropdown-menu,
 .navbar {
 	background-color: rgba(5, 25, 37, 0.9);
 	border-color: rgba(5, 25, 37, 0.2);
+}
+
+
+ .navbar-default .navbar-nav>.open>a:focus,
+.navbar-default .navbar-nav>.open>a,
+.navbar-default .navbar-nav>.open>a:hover,
+.navbar .nav .dropdown .dropdown-toggle,
+.navbar .nav .dropdown .open .dropdown-toggle,
+.navbar .nav .login a {
+	color: $cust-gold !important;
+	background-color: inherit !important;
 }
 
 .navbar .navbar-brand {
@@ -34,9 +57,10 @@ body {
 	vertical-align: middle;
 }
 .navbar .nav li a,
+.navbar .nav .open .dropdown-menu a
 .navbar .nav li a:visited{
 	font-family: 'Open Sans', sans-serif;
-	color: #eee;	
+	color: #eee !important;	
 	font-size: 16px;
 }
 
@@ -47,6 +71,7 @@ body {
 	color: white;
 }
 
+.navbar .dropdown-menu li a:hover,
 .navbar .nav li a:hover {
 	color: white;
 	text-decoration: underline;
@@ -132,4 +157,19 @@ body {
 
 .field_with_errors .has-error .form-control { 
     color: danger;
+}
+
+.navbar>.container-fluid .navbar-brand, 
+.navbar>.container-fluid .navbar-brand:hover,
+.clothing-search .navbar-brand {
+	color: #eee;
+}
+
+.clothing-search .dropdown-toggle {
+	padding: 0 25px;
+	margin: 0 10px 5px 0;
+}
+
+.clothing-search .dropdown-menu>li>a:hover {
+	color: black;
 }
