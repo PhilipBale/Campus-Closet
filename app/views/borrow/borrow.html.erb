@@ -49,8 +49,9 @@
               <span data-bind="label">Size</span> <span class="caret"></span>
             </button>
             <ul class="dropdown-menu" role="menu">
-              <li><a href="#">Small</a></li>
-              <li><a href="#">Medium</a></li> 
+              <% get_all_sizes("").each do |size| %>
+                <li><a href="#"><%= size %></a></li>
+              <% end %>
             </ul>
           </div>
  
@@ -73,7 +74,7 @@
 </nav>
 
 
-    <div class="row"> 
+    <div class="row table-responsive"> 
        <table class="table table-striped">
         <tr>
           <th>Clothing Code</th>
@@ -81,18 +82,18 @@
           <th>Type</th>
           <th>Size</th>
           <th>Color</th>
-          <th>Set Piece?</th>
-          <th>Status</th>
+          <th>Set Piece?</th> 
+          <th></th>
         </tr>
-        <% get_clothing.each do |clothing| %>
+        <% get_all_clothing.each do |clothing| %>
           <tr>
             <td><%= clothing.clothing_code %></td>
             <td><%= clothing.gender %></td>
             <td><%= clothing.clothing_type %></td>
             <td><%= clothing.size %></td>
             <td><%= clothing.color %></td>
-            <td><%= "none" %></td>
-            <td><%= "none" %></td>
+            <td><%= "none" %></td> 
+            <td><%= can_borrow(clothing) %></td>
           </tr>
         <% end %>
       </table>

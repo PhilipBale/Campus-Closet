@@ -9,7 +9,16 @@ module BorrowHelper
 	  TYPES
 	end
 
-	def get_clothing
-		Clothing.all
-	end
+	def can_borrow(clothing)
+      if true
+      	if logged_in?
+      	  raw('<a href="#">Borrow</a>')
+        else
+          link_to "Log in", login_path
+        end
+      else
+      	Unavailable
+      end
+    end
+	
 end

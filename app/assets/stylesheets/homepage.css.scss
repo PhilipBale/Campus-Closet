@@ -1,5 +1,6 @@
 $cust-gold: rgb(213, 155, 0);
 $cust-blue: rgb(5, 25, 37);
+$faded-gold: #f1e7c2;
 
 /* 
 rgb(213, 155, 0) Gold
@@ -22,7 +23,7 @@ body {
 }
 
 
- 
+ .nav .dropdown-menu li a:focus,
 .nav .dropdown-menu li a:hover{
 	background-color: inherit !important;
 	color: #eee !important;
@@ -57,7 +58,7 @@ body {
 	vertical-align: middle;
 }
 .navbar .nav li a,
-.navbar .nav .open .dropdown-menu a
+.navbar .nav .open .dropdown-menu a,
 .navbar .nav li a:visited{
 	font-family: 'Open Sans', sans-serif;
 	color: #eee !important;	
@@ -173,3 +174,7 @@ body {
 .clothing-search .dropdown-menu>li>a:hover {
 	color: black;
 }
+
+.table-striped > tbody > tr:nth-child(2n+1) > td {
+   background-color: $faded-gold;
+} 

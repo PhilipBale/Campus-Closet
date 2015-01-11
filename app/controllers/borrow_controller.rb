@@ -1,5 +1,3 @@
 class BorrowController < ApplicationController 
 
-
-	
 end

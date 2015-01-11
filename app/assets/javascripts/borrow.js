@@ -1,4 +1,4 @@
-$( document.body ).on( 'click', '.dropdown-menu li', function( event ) {
+$( document.body ).on( 'click', '.clothing-search .dropdown-menu li', function( event ) {
  
    var $target = $( event.currentTarget );
  
