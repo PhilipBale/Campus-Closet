@@ -13,8 +13,10 @@
 #
 
 class Clothing < ActiveRecord::Base
+  include ClothingHelper
+
   validates :clothing_code, presence: true
-  validates_inclusion_of :clothing_type, in: ClothingHelper.TYPES
-  validates_inclusion_of :gender, in: ClothingHelper.GENDERS
+  validates_inclusion_of :clothing_type, in: TYPES
+  validates_inclusion_of :gender, in: GENDERS
   validates :size, presence: true
 end

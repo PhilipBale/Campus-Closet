@@ -27,8 +27,9 @@
               <span data-bind="label">Gender</span> <span class="caret"></span>
             </button>
             <ul class="dropdown-menu" role="menu">
-              <li><a href="#">Male</a></li>
-              <li><a href="#">Female</a></li> 
+              <% get_genders.each do |gender| %>
+                <li><a href="#"><%= gender %></a></li>
+              <% end %>
             </ul>
           </div>
 
@@ -37,8 +38,9 @@
               <span data-bind="label">Type</span> <span class="caret"></span>
             </button>
             <ul class="dropdown-menu" role="menu">
-              <li><a href="#">Shirt</a></li>
-              <li><a href="#">Pants</a></li> 
+              <% get_types.each do |type| %>
+                <li><a href="#"><%= type %></a></li>
+              <% end %>
             </ul>
           </div>
 
@@ -62,7 +64,7 @@
             </button>
           </div> 
         </div>
-        
+
       </div>
 
       
@@ -72,8 +74,27 @@
 
 
     <div class="row"> 
-       <div class="col-md-12"> 
-       <p class="center"><a href="http://www.youtube.com/watch?v=b4l4khCUnIM">Watch Men's Video</a></p>
-       </div>
+       <table class="table table-striped">
+        <tr>
+          <th>Clothing Code</th>
+          <th>Gender</th>
+          <th>Type</th>
+          <th>Size</th>
+          <th>Color</th>
+          <th>Set Piece?</th>
+          <th>Status</th>
+        </tr>
+        <% get_clothing.each do |clothing| %>
+          <tr>
+            <td><%= clothing.clothing_code %></td>
+            <td><%= clothing.gender %></td>
+            <td><%= clothing.clothing_type %></td>
+            <td><%= clothing.size %></td>
+            <td><%= clothing.color %></td>
+            <td><%= "none" %></td>
+            <td><%= "none" %></td>
+          </tr>
+        <% end %>
+      </table>
     </div> 
   </div>
