@@ -20,44 +20,29 @@
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <form class="navbar-form navbar-left" role="search">
+      <%= form_for(:borrow_search, url: borrow_path, html: {class: "navbar-form navbar-left", role: "search"}) do |f| %>
         <div class="form-group">
           <div class="btn-group btn-input clearfix">
-            <button type="button" class="btn btn-default dropdown-toggle form-control" data-toggle="dropdown">
-              <span data-bind="label">Gender</span> <span class="caret"></span>
-            </button>
-            <ul class="dropdown-menu" role="menu">
-              <% get_genders.each do |gender| %>
-                <li><a href="#"><%= gender %></a></li>
-              <% end %>
-            </ul>
+             
+             
+            <%= f.select(:gender, options_for_select(get_genders), {}, {class: "form-control btn btn-default"}) %>
           </div>
 
           <div class="btn-group btn-input clearfix">
-            <button type="button" class="btn btn-default dropdown-toggle form-control" data-toggle="dropdown">
-              <span data-bind="label">Type</span> <span class="caret"></span>
-            </button>
-            <ul class="dropdown-menu" role="menu">
-              <% get_types.each do |type| %>
-                <li><a href="#"><%= type %></a></li>
-              <% end %>
-            </ul>
+           <%= f.select(:type, options_for_select(get_types), {}, {class: "form-control btn btn-default"}) %>
           </div>
 
           <div class="btn-group btn-input clearfix">
-            <button type="button" class="btn btn-default dropdown-toggle form-control" data-toggle="dropdown">
-              <span data-bind="label">Size</span> <span class="caret"></span>
-            </button>
-            <ul class="dropdown-menu" role="menu">
-              <% get_all_sizes("").each do |size| %>
-                <li><a href="#"><%= size %></a></li>
-              <% end %>
-            </ul>
+            <%= f.select(:size, options_for_select(get_all_sizes("")), {}, {class: "form-control btn btn-default"}) %>
           </div>
  
         </div>
+
+        <div class="btn-group btn-input clearfix">
+            <%= f.submit "Search", class: "btn btn-success", style: "" %>
+          </div>
         
-      </form>
+      <% end %>
       <div class="navbar-form navbar-right" role="search">
         <div class="form-group">
           <div class="btn-group btn-input clearfix">
@@ -85,7 +70,8 @@
           <th>Set Piece?</th> 
           <th></th>
         </tr>
-        <% get_all_clothing.each do |clothing| %>
+        <% if @clothing_results != nil
+         @clothing_results.each do |clothing| %>
           <tr>
             <td><%= clothing.clothing_code %></td>
             <td><%= clothing.gender %></td>
@@ -94,8 +80,15 @@
             <td><%= clothing.color %></td>
             <td><%= "none" %></td> 
             <td><%= can_borrow(clothing) %></td>
-          </tr>
-        <% end %>
+          </tr> 
+        <% end 
+        end %>
       </table>
     </div> 
+
+
+    <%= form_tag import_path, multipart: true do %>
+      <%= file_field_tag :file %>
+      <%= submit_tag "Import CSV" %>
+    <% end %>
   </div>

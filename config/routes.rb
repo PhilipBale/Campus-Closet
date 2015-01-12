@@ -13,6 +13,8 @@ Rails.application.routes.draw do
   get '/sizing',   to: 'static_pages#sizing'
   get '/contact', to: 'static_pages#contact'
   get '/borrow', to: 'borrow#borrow'
+  post '/borrow', to: 'borrow#search'
+  post '/import', to: 'borrow#import'
   resources :users
 
 
