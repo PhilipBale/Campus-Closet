@@ -36,15 +36,6 @@ body {
 }
 
 
- .navbar-default .navbar-nav>.open>a:focus,
-.navbar-default .navbar-nav>.open>a,
-.navbar-default .navbar-nav>.open>a:hover,
-.navbar .nav .dropdown .dropdown-toggle,
-.navbar .nav .dropdown .open .dropdown-toggle,
-.navbar .nav .login a {
-	color: $cust-gold !important;
-	background-color: inherit !important;
-}
 
 .navbar .navbar-brand {
 	float: left;
@@ -61,8 +52,14 @@ body {
 .navbar .nav .open .dropdown-menu a,
 .navbar .nav li a:visited{
 	font-family: 'Open Sans', sans-serif;
-	color: #eee !important;	
+	color: #eee;	
 	font-size: 16px;
+}
+
+.navbar .nav li .account-link,
+ .account-link {
+	color: $cust-gold !important;
+	background-color: inherit !important;
 }
 
 .navbar .nav .active a, 
@@ -166,9 +163,14 @@ body {
 	color: #eee;
 }
 
-.clothing-search .dropdown-toggle {
-	padding: 0 25px;
-	margin: 0 10px 5px 0;
+.clothing-search .btn-default {
+	width: 150px;
+	text-align: center;
+	margin: 1px 10px 1px 0;
+}
+
+.clothing-search .btn-primary {
+	width: 150px;
 }
 
 .clothing-search .dropdown-menu>li>a:hover {
@@ -177,4 +179,19 @@ body {
 
 .table-striped > tbody > tr:nth-child(2n+1) > td {
    background-color: $faded-gold;
-} 
+}
+
+.bold {
+	font-weight: bold;
+}
+
+.account-info ul {
+	margin-top: 20px;
+	padding-left: 20px;
+	list-style: none;
+}
+
+.jumbotron .account-info p {
+	padding: 20px;
+	margin-bottom: 0px;
+}

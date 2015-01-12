@@ -1,0 +1,14 @@
+<% provide(:title, 'Borrow') %>
+  
+  <!-- Main component for a primary marketing message or call to action -->
+  <div class="jumbotron">
+    <h1 class="main-title">Clothing View</h1>
+    <h4 class="sub-title">Let Campus Closet dress you to reach your goals</h4>
+
+     <% if @clothing != nil && !@clothing.blank? %>
+       <%= @clothing.gender %>
+     <% else %>
+       <h2>Your search was invalid, please try again.  If this issue persists, please contact us.</h2>
+     <% end %>
+
+  </div>

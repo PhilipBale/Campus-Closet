@@ -1,0 +1,96 @@
+<% provide(:title, 'Account') %>
+  
+  <!-- Main component for a primary marketing message or call to action -->
+  <div class="jumbotron">
+    <h1 class="main-title">Account </h1>
+    <h4 class="sub-title">Let Campus Closet dress you to reach your goals</h4>
+
+    <%if logged_in? %>
+      <h3>Welcome, <%= current_user.name %></h3>
+      <div class="row">
+      <br>
+        <div class="col-md-6">
+        <div class="panel panel-info account-info">
+        <div class="panel-heading">
+          <h3 class="panel-title">Account Info</h3>
+        </div>
+          <ul>
+            <li><span class="bold">Name:</span> <%= current_user.name %></li>
+            <li><span class="bold">Email:</span> <%= current_user.email %></li>
+            <li><span class="bold">Phone:</span> <%= current_user.phone %></li>
+          </ul>
+        </div>
+        </div> 
+      <div class="col-md-6">
+        <div class="panel panel-success account-info">
+        <div class="panel-heading">
+          <h3 class="panel-title">Account Standing</h3>
+        </div>
+          <p>Congratulations!  Your account is in good standing and you are able to borrow clothing.  Thank you! </p>
+        </div>
+        </div>
+      </div>
+
+
+
+      <% if @reserved_results != nil %>
+      <div class="row table-responsive"> 
+       <table class="table table-striped">
+        <tr>
+          <th>Clothing Code</th>
+          <th>Gender</th>
+          <th>Type</th>
+          <th>Size</th>
+          <th>Color</th>
+          <th>Set Piece?</th>
+        </tr>
+        
+         <% @reserved_results.each do |reservation| %>
+          <tr>
+            <td><%= reservation.clothing_code %></td>
+            <td><%= reservation.gender %></td>
+            <td><%= reservation.clothing_type %></td>
+            <td><%= reservation.size %></td>
+            <td><%= clothing.color %></td>
+            <td><%= "none" %></td> 
+            <td><%= link_to "Cancel Reservation", "#" %></td>
+          </tr> 
+        <% end %>
+        
+      </table>
+    </div>
+    <% end %>
+
+    <% if @rental_history != nil %>
+      <div class="row table-responsive"> 
+       <table class="table table-striped">
+        <tr>
+          <th>Clothing Code</th>
+          <th>Gender</th>
+          <th>Type</th>
+          <th>Size</th>
+          <th>Color</th>
+          <th>Set Piece?</th>
+        </tr>
+        
+         <% @rental_history.each do |rental| %>
+          <tr>
+            <td><%= rental.clothing_code %></td>
+            <td><%= rental.gender %></td>
+            <td><%= rental.clothing_type %></td>
+            <td><%= rental.size %></td>
+            <td><%= rental.color %></td>
+            <td><%= "none" %></td>
+          </tr> 
+        <% end %>
+        
+      </table>
+    </div>
+    <% end %>
+
+    <% else %>
+      <h2>Please <%= link_to "log in", login_path %> to view this page.</h2>
+    <% end %>
+
+ 
+  </div>

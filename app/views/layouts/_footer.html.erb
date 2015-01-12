@@ -8,14 +8,17 @@
           <p class="text-muted">Design & Integration by <a href="http://www.philipbale.com">Philip Bale</a> GT CS '17</p>
         </div>
         <div class="col-md-3 col-sm-3" style="text-align: right">
-          <p class="text-muted"><a href="#">Terms & Conditions</a> |
+          <p class="text-muted"><a href="#">Terms</a> |
           
           <% if logged_in? %> 
-          <%= link_to "Log Out", logout_path, method: "delete" %></p>
+          <%= link_to "Log Out", logout_path, method: "delete" %>
+            <% if current_user.admin? %>
+              | <%= link_to " Admin Panel", "#" %>
+            <% end %>
+            </p>
         <% else %>
           <%= link_to "Log In", login_path %></p>
         <% end %>  
-
           
         </div>
       </div>

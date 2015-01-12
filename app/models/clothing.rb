@@ -29,8 +29,8 @@ class Clothing < ActiveRecord::Base
   end
 
   def self.import(file)
-	CSV.foreach(file.path, headers: true) do |row|
-	  Clothing.create! row.to_hash
-	end
+  	CSV.foreach(file.path, headers: true) do |row|
+  	  Clothing.create! row.to_hash
+  	end
   end
 end

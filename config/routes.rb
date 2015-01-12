@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'account/view'
+
   get 'clothing/new'
 
   get 'sessions/new'
@@ -15,7 +17,11 @@ Rails.application.routes.draw do
   get '/borrow', to: 'borrow#borrow'
   post '/borrow', to: 'borrow#search'
   post '/import', to: 'borrow#import'
+
+  get '/account', to: 'account#view'
+
   resources :users
+  resources :clothing
 
 
   # The priority is based upon order of creation: first created -> highest priority.

@@ -64,7 +64,7 @@
         <% if @clothing_results != nil
          @clothing_results.each do |clothing| %>
           <tr>
-            <td><%= clothing.clothing_code %></td>
+            <td><%= link_to clothing.clothing_code, clothing_path(clothing.clothing_code) %></td>
             <td><%= clothing.gender %></td>
             <td><%= clothing.clothing_type %></td>
             <td><%= clothing.size %></td>
