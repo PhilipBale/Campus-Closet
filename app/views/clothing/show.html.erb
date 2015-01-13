@@ -5,10 +5,19 @@
     <h1 class="main-title">Clothing View</h1>
     <h4 class="sub-title">Let Campus Closet dress you to reach your goals</h4>
 
-     <% if @clothing != nil && !@clothing.blank? %>
-       <%= @clothing.gender %>
-     <% else %>
-       <h2>Your search was invalid, please try again.  If this issue persists, please contact us.</h2>
-     <% end %>
+    <% if @clothing != nil && !@clothing.blank? %>
+      <ul class="clothing-view-list">
+        <li><span class="bold">Clothing Code:</span> <%= @clothing.clothing_code %></li>
+        <li><span class="bold">Gender:</span> <%= @clothing.gender %></li>
+        <li><span class="bold">Type:</span> <%= @clothing.clothing_type %></li>
+        <li><span class="bold">Size:</span> <%= @clothing.size %></li>
+        <li><span class="bold">Color:</span> <%= @clothing.color %></li>
+        <li><span class="bold">Status:</span> <%= "Available" %></li>
+        <li class="bold"><%= link_to "Add to cart", "#" %></li>
+        <li><%= raw @barcode_for_html.to_html %></li>
+      </ul>
+    <% else %>
+     <h2>Your search was invalid, please try again.  If this issue persists, please contact us.</h2>
+    <% end %>
 
   </div>
