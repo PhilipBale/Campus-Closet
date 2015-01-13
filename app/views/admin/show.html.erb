@@ -1,0 +1,19 @@
+<% provide(:title, 'Admin') %>
+  
+  <!-- Main component for a primary marketing message or call to action -->
+  <div class="jumbotron">
+    <h1 class="main-title">Admin </h1>
+    <h4 class="sub-title">Let Campus Closet dress you to reach your goals</h4>
+
+    <%= render 'admin/header' %>
+    <div class="admin"
+<%= @subpage %>
+    <% if params[:subpage] %>
+      <%= render "admin/#{params[:subpage]}" %>
+    <% else %>
+      <%= render 'admin/home' %>
+    <% end %>
+    </div>
+
+	
+  </div>

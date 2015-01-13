@@ -1,0 +1,8 @@
+<div class="home">
+<h2> Home </h2>
+<p>Welcome to the admin panel, <%= current_user.name %></p>
+<ul>
+  <li><span class="bold">User Count:</span> <%= User.count %></li>
+  <li><span class="bold">Clothing Count:</span> <%= Clothing.count %></li>
+</ul>
+</div>

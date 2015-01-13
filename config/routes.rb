@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'admin/show'
+
   get 'account/view'
 
   get 'clothing/new'
@@ -19,6 +21,9 @@ Rails.application.routes.draw do
   post '/import', to: 'borrow#import'
 
   get '/account', to: 'account#view'
+
+  get '/admin', to: 'admin#show'
+  get '/admin/:subpage' => 'admin#show', as: :admin_subpage
 
   resources :users
   resources :clothing

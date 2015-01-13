@@ -15,7 +15,7 @@
           <%= nav_list_item("Sizing", sizing_path) %>
           <%= nav_list_item("Contact", contact_path) %>
           <% if logged_in? %> 
-            <li><%= link_to "Account", account_path, class: "account-link" %></li>
+            <li class: "account-link"><%= nav_list_item("Account", account_path) %></li>
  
               <li>
                 <%= link_to "Log out", logout_path, method: "delete" %>

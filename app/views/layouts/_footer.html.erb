@@ -13,7 +13,7 @@
           <% if logged_in? %> 
           <%= link_to "Log Out", logout_path, method: "delete" %>
             <% if current_user.admin? %>
-              | <%= link_to " Admin Panel", "#" %>
+              | <%= link_to " Admin Panel", admin_path %>
             <% end %>
             </p>
         <% else %>
