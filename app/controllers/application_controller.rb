@@ -6,9 +6,8 @@ class ApplicationController < ActionController::Base
   include SessionsHelper
   include ClothingHelper
   include UsersHelper
-  
+
   require 'barby'
-  require 'barby/barcode/CODE_39'
   require 'barby/outputter/png_outputter'
   require 'barby/outputter/html_outputter'
 end
