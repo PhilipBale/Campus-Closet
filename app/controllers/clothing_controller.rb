@@ -1,6 +1,6 @@
 class ClothingController < ApplicationController
   require 'barby'
-  require 'barby/barcode/code_128'
+  require 'barby/barcode/CODE_39'
   require 'barby/outputter/png_outputter'
   require 'barby/outputter/html_outputter'
   
@@ -15,10 +15,11 @@ class ClothingController < ApplicationController
   	end
  	
  	if @clothing.present?
-      @barcode = Barby::Code128B.new(@clothing.clothing_code)
+      @barcode = Barby::Code39.new(@clothing.clothing_code)
       @barcode_for_html = Barby::HtmlOutputter.new(@barcode)
-      blob = Barby::PngOutputter.new(@barcode).to_png #Raw PNG data
-      File.open('barcode.png', 'w'){|f| f.write blob }
+      full_path = "barcodes/#{@barcode}.png"
+      # blob = Barby::PngOutputter.new(@barcode) #Raw PNG data
+      # File.open(full_path, 'w'){ |f| f.write blob.to_png(:margin => 3, :xdim => 2, :height => 55) }
     end
   end
 end
