@@ -18,4 +18,8 @@ module ApplicationHelper
 		raw("<li #{extra}>#{link_to name, url }</li>")
 	end
 
+	def generate_barcode_html(code)
+      barcode = Barby::Code39.new(code)
+      barcode_for_html = Barby::HtmlOutputter.new(barcode)
+    end
 end

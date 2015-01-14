@@ -6,8 +6,7 @@
     <h4 class="sub-title">Let Campus Closet dress you to reach your goals</h4>
 
     <%= render 'admin/header' %>
-    <div class="admin"
-<%= @subpage %>
+    <div class="admin">
     <% if params[:subpage] %>
       <%= render "admin/#{params[:subpage]}" %>
     <% else %>

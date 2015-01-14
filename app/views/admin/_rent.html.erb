@@ -36,21 +36,17 @@
 <div class="row">
 <div class="col-md-7">
 <form class="form-inline">
-  <div class="form-group">
-    <div class="input-group">
-      <div class="input-group-addon"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></div>
-      <input type="text" class="form-control" id="exampleInputAmount" placeholder="Email"> 
-    </div>
-  </div>
+ 
   <div class="form-group">
     <div class="input-group"> 
-      <input type="text" class="form-control" id="exampleInputAmount" placeholder="Clothing Code"> 
+      <input type="text" class="form-control" name="PrintReservationCodeValue" placeholder="Reservation Code"> 
     </div>
   </div>
-  <button type="submit" class="btn btn-primary">Print Customer Ticket</button>
+  <%= link_to "Print Customer Ticket", "#", onclick: "printReservation()", class: "btn btn-primary" %>
 </form>
 </div>
 <div class="col-md-5">
+
 <button type="submit" class="btn btn-primary" style="width: 100%">Print Dry Cleaning Coupon</button>
 </div>
 </div> 

@@ -1,4 +1,27 @@
 <div class="clients">
 <h2>Clients</h2>
-
+<div class="row table-responsive"> 
+       <table class="table table-striped">
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Phone</th>
+          <th>Status</th>
+          <th>Last Rental</th>
+        </tr>
+        <% if @clients != nil
+         @clients.each do |client| %>
+          <tr>
+          	<td><%= client.id %></td>
+            <td><%= link_to client.name, account_path(supplied_email: client.email) %><%= " (ADMIN)" if client.admin %></td>
+            <td><%= client.email %></td>
+            <td><%= client.phone %></td>
+            <td><%= "Good" %></td>
+            <td><%= "Never" %></td>  
+          </tr> 
+        <% end 
+        end %>
+      </table>
+    </div> 
 </div>

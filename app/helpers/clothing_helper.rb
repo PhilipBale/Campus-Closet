@@ -10,4 +10,8 @@ module ClothingHelper
   def pad_clothing_code(code)
   	code.rjust(8, '0')
   end
+
+  def find_clothing(code)
+  	clothing = Clothing.where("clothing_code = ?", code).first
+  end
 end
