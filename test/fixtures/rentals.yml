@@ -1,17 +1,30 @@
+# == Schema Information
+#
+# Table name: rentals
+#
+#  id          :integer          not null, primary key
+#  user_id     :integer
+#  start       :datetime
+#  end         :datetime
+#  picked_up   :boolean
+#  active      :boolean          default("t")
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#  clothing_id :integer
+#
+
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
   user_id: 
-  clothing_id: 
-  start: 2015-01-15 10:40:02
-  end: 2015-01-15 10:40:02
+  start: 2015-01-15 10:43:00
+  end: 2015-01-15 10:43:00
   picked_up: false
   active: false
 
 two:
   user_id: 
-  clothing_id: 
-  start: 2015-01-15 10:40:02
-  end: 2015-01-15 10:40:02
+  start: 2015-01-15 10:43:00
+  end: 2015-01-15 10:43:00
   picked_up: false
   active: false

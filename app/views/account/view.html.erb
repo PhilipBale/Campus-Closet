@@ -31,56 +31,29 @@
         </div>
       </div>
 
-
-
-      <% if @reserved_results != nil %>
+      <% if @rentals != nil %>
       <div class="row table-responsive"> 
        <table class="table table-striped">
         <tr>
+          <th>Rental ID</th>
           <th>Clothing Code</th>
-          <th>Gender</th>
-          <th>Type</th>
-          <th>Size</th>
-          <th>Color</th>
-          <th>Set Piece?</th>
+          <th>Start</th>
+          <th>End</th>
+          <th>Picked Up?</th>
+          <th>Active?</th> 
+          <th>
         </tr>
         
-         <% @reserved_results.each do |reservation| %>
+         <% @rentals.each do |rental| 
+          clothing_code = Clothing.find(rental.clothing_id).clothing_code %>
           <tr>
-            <td><%= reservation.clothing_code %></td>
-            <td><%= reservation.gender %></td>
-            <td><%= reservation.clothing_type %></td>
-            <td><%= reservation.size %></td>
-            <td><%= clothing.color %></td>
-            <td><%= "none" %></td> 
-            <td><%= link_to "Cancel Reservation", "#" %></td>
-          </tr> 
-        <% end %>
-        
-      </table>
-    </div>
-    <% end %>
-
-    <% if @rental_history != nil %>
-      <div class="row table-responsive"> 
-       <table class="table table-striped">
-        <tr>
-          <th>Clothing Code</th>
-          <th>Gender</th>
-          <th>Type</th>
-          <th>Size</th>
-          <th>Color</th>
-          <th>Set Piece?</th>
-        </tr>
-        
-         <% @rental_history.each do |rental| %>
-          <tr>
-            <td><%= rental.clothing_code %></td>
-            <td><%= rental.gender %></td>
-            <td><%= rental.clothing_type %></td>
-            <td><%= rental.size %></td>
-            <td><%= rental.color %></td>
-            <td><%= "none" %></td>
+            <td><%= rental.id %></td>
+            <td><%= link_to clothing_code, clothing_path(rental.clothing_id) %></td>
+            <td><%= rental.start.strftime("%-m/%-d/%y at %H:%M") %></td>
+            <td><%= rental.end.strftime("%-m/%-d/%y at %H:%M") %></td>
+            <td><%= rental.picked_up %></td>
+            <td><%= rental.active %></td>
+            <td><%= link_to "Cancel Rental", "#" %></td>
           </tr> 
         <% end %>
         

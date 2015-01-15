@@ -12,7 +12,7 @@ module BorrowHelper
 	def can_borrow(clothing)
       if true
       	if logged_in?
-      	  raw('<a href="#">Borrow</a>')
+      	  link_to "Borrow", rent_clothing_path(clothing)
         else
           link_to "Log in", login_path
         end

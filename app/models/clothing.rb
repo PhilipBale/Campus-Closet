@@ -14,6 +14,7 @@
 
 class Clothing < ActiveRecord::Base
   include ClothingHelper
+  has_many :rental
 
   validates :clothing_code, presence: true
   validates_inclusion_of :clothing_type, in: TYPES
