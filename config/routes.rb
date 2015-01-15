@@ -25,6 +25,7 @@ Rails.application.routes.draw do
   get '/admin', to: 'admin#show'
   get '/admin/:subpage' => 'admin#show', as: :admin_subpage
   get '/print/:rescode' => 'admin#print_res', as: :admin_print_res
+  get '/print_all/', to: 'admin#print_all_labels'
 
   resources :users
   resources :clothing

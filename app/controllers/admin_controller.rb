@@ -14,4 +14,9 @@ class AdminController < ApplicationController
   	@barcode_for_html = generate_barcode_html(@clothing.clothing_code)
   	render layout: false
   end
+
+  def print_all_labels
+    @clothing = Clothing.all
+    render layout: false;
+  end
 end

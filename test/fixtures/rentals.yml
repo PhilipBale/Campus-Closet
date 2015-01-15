@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 
+  clothing_id: 
+  start: 2015-01-15 10:40:02
+  end: 2015-01-15 10:40:02
+  picked_up: false
+  active: false
+
+two:
+  user_id: 
+  clothing_id: 
+  start: 2015-01-15 10:40:02
+  end: 2015-01-15 10:40:02
+  picked_up: false
+  active: false

@@ -1,0 +1,45 @@
+<html>
+<head>
+<style>
+table.barby-barcode { border-spacing: 0;}
+tr.barby-row {}
+td.barby-cell { width: 3px; height: 90px; }
+td.barby-cell.on { background: #000;}
+body {
+	padding: 0 10px 0 0;
+}
+ 
+@media print {
+td.barby-cell.on {   
+    background-color: #000 !important;
+                -webkit-print-color-adjust: exact; 
+    page-break-inside: avoid;
+}}
+
+.cell {
+	padding: 0 15px;
+	page-break-inside: avoid;
+}
+
+</style>
+</head>
+<body>
+<table>
+<tr>
+<% if @clothing != nil
+ @clothing.each_with_index do |article, index| %> 
+<td class="cell">
+Gender/Type: <%= article.gender + "/" + article.clothing_type %> <br/>
+Color/Size: <%= article.color + "/" + article.size %><br />
+Clothing Code: <%= article.clothing_code %> <br />
+<%= raw (generate_barcode_html(article.clothing_code).to_html) %> <br /><br/>
+</td>
+  <% if (index + 1) % 3 == 0 %>
+  	</tr><tr>
+  <% end %>
+<% end 
+end %>
+</tr> 
+
+</body>
+</html>
