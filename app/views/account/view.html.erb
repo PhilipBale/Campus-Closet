@@ -53,9 +53,9 @@
             <td><%= rental.id %></td>
             <td><%= link_to clothing_code, clothing_path(rental.clothing_id) %></td>
             <td><%= rental.start.strftime("%-m/%-d/%y at %H:%M") %></td>
-            <td style="<%= 'color: #D34747' if (rental.active && !rental.picked_up) %>"><%= rental.end.strftime("%-m/%-d/%y at %H:%M") %></td>
-            <td style="<%= 'color: #D34747' if (rental.active && !rental.picked_up) %>"><%= rental.picked_up %></td>
-            <td style="<%= 'color: green' if (rental.active)%>"><%= rental.active %></td>
+            <td style="<%= 'color: #D34747' if (rental.active) %>"><%= rental.end.strftime("%-m/%-d/%y at %H:%M") %></td>
+            <td style="<%= 'color: #D34747; font-weight: bold;' if (rental.active && !rental.picked_up) %><%= 'color: green;font-weight: bold' if (rental.active && rental.picked_up) %>"><%= rental.picked_up %></td>
+            <td style="<%= 'color: green; font-weight: bold' if (rental.active)%>"><%= rental.active %></td>
             <td><%= details(rental) %></td>
           </tr> 
         <% end %>

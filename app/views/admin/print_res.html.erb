@@ -17,10 +17,10 @@ td.barby-cell.on {
 </style>
 </head>
 <body onload="window.print()">
-Carol Smith<br/>
-csmith@gatech.edu<br />
-Rental: 01/01/2015 - 01/15/2014<br />
-C/R Codes: <%= @clothing.clothing_code %> / 933291<br />
+<%= @user.name %><br/>
+<%= @user.email %><br />
+Rental: <%= @rental.start.strftime("%-m/%-d/%y") %> - <%= @rental.end.strftime("%-m/%-d/%y") %><br />
+C/R Codes: <%= @clothing.clothing_code %> / <%= @rental.id %><br />
 <%= raw @barcode_for_html.to_html %>
 </body>
 </html>

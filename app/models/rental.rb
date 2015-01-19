@@ -6,7 +6,7 @@
 #  user_id     :integer
 #  start       :datetime
 #  end         :datetime
-#  picked_up   :boolean
+#  picked_up   :boolean          default("f")
 #  active      :boolean          default("t")
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null

@@ -2,32 +2,26 @@
 <h2>Rent Clothing</h2> 
 <div class="row">
 <div class="col-md-7">
-<form class="form-inline">
-  <div class="form-group">
-    <div class="input-group">
-      <div class="input-group-addon"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></div>
-      <input type="text" class="form-control" id="exampleInputAmount" placeholder="Email"> 
-    </div>
-  </div>
-  <div class="form-group">
-    <div class="input-group"> 
-      <input type="text" class="form-control" id="exampleInputAmount" placeholder="Clothing Code"> 
-    </div>
-  </div>
-  <button type="submit" class="btn btn-primary">Rent Clothing</button>
-</form>
+<%= form_for(:rent_clothing, html: {class: "form-inline"}) do |f| %> 
+  <label>Rent Clothing </label><br />
+  
+  <div class="form-group input-group"> 
+    <%= f.text_field :rental_id, class: "form-control", placeholder: "Rental Code" %>
+  </div> 
+  <%= f.submit "Rent Clothing", class: "btn btn-primary" %>
+<% end %>
 </div>
 
 <div class="col-md-5">
-<form class="form-inline">
-  <div class="form-group">
-    <div class="input-group">
-      <div class="input-group-addon"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></div>
-      <input type="text" class="form-control" id="exampleInputAmount" placeholder="Email"> 
-    </div>
+<%= form_for(:show_cart, html: {class: "form-inline"},:remote => true) do |f| %> 
+  <label>Show Cart</label><br />
+  <div class="form-group input-group"> 
+  <div class="input-group-addon"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></div>
+    <%= f.text_field :email, class: "form-control", placeholder: "Email", name: "ShowCartEmail" %>
   </div> 
-  <button type="submit" class="btn btn-primary">Show Cart</button>
-</form>
+  <%= f.submit "Show Cart", class: "btn btn-primary", onclick: "showCart()" %>
+<% end %>
+
 </div>
 
 
@@ -36,20 +30,36 @@
 <div class="row">
 <div class="col-md-7">
 <form class="form-inline">
- 
-  <div class="form-group">
-    <div class="input-group"> 
-      <input type="text" class="form-control" name="PrintReservationCodeValue" placeholder="Reservation Code"> 
+  <label>Print Customer  Ticket</label><br />
+    <div class="form-group input-group"> 
+      <input type="text" class="form-control" name="PrintReservationCodeValue" placeholder="Rental Code"> 
     </div>
-  </div>
-  <%= link_to "Print Customer Ticket", "#", onclick: "printReservation()", class: "btn btn-primary" %>
+    <%= link_to "Print Customer Ticket", "#", onclick: "printOnDemand()", class: "btn btn-primary" %>
 </form>
 </div>
 <div class="col-md-5">
-
-<button type="submit" class="btn btn-primary" style="width: 100%">Print Dry Cleaning Coupon</button>
+<form class="form-inline">
+  <label>Print Dry Cleaning Coupon</label><br />
+    <div class="form-group input-group"> 
+      <input type="text" class="form-control" name="PrintDryCleaningCodeValue" placeholder="Rental Code"> 
+    </div>
+    <%= link_to "Print Dry Cleaning Coupon", "#", onclick: "printDryClean()", class: "btn btn-primary" %>
+</form>
 </div>
 </div> 
+<br />
+<div class="row">
+<div class="col-md-6">
+<%= form_for(:return_clothing, html: {class: "form-inline"}) do |f| %> 
+  <label>Return Clothing </label><br />
+  
+  <div class="form-group input-group"> 
+    <%= f.text_field :rental_id, class: "form-control", placeholder: "Rental Code" %>
+  </div> 
+  <%= f.submit "Return Clothing", class: "btn btn-primary" %>
+<% end %>
+</div>
+</div>
 
 
 

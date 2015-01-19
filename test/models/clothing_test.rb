@@ -10,6 +10,7 @@
 #  size          :string
 #  created_at    :datetime         not null
 #  updated_at    :datetime         not null
+#  active        :boolean          default("t")
 #
 
 require 'test_helper'

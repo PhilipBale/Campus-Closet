@@ -26,7 +26,7 @@
 </div>
 <br/>
 <div class="row">
-	<div class="col-md-12">
+	<div class="col-md-6">
 		<%= form_for(:remove_clothing, html: {class: "form-inline"}) do |f| %> 
 			<label>Remove Clothing</label><br />
               <div class="form-group input-group">  
@@ -35,5 +35,14 @@
               <%= f.submit "Remove Clothing", class: "btn btn-primary" %>
           <% end %>
 	</div>
+  <div class="col-md-6">
+    <form class="form-inline">
+      <label>Print Clothing Tag</label><br />
+        <div class="form-group input-group"> 
+          <input type="text" class="form-control" name="PrintClothingTagValue" placeholder="Clothing Code"> 
+        </div>
+        <%= link_to "Print Clothing Tag", "#", onclick: "printClothingTag()", class: "btn btn-primary" %>
+    </form>
+  </div>
 </div>
 </div>
