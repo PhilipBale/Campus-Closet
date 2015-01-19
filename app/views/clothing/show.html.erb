@@ -13,7 +13,7 @@
         <li><span class="bold">Size:</span> <%= @clothing.size %></li>
         <li><span class="bold">Color:</span> <%= @clothing.color %></li>
         <li><span class="bold">Status:</span> <%= "Available" %></li>
-        <li class="bold"><%= link_to "Add to cart", "#" %></li>
+        <li class="bold"><%= can_borrow(@clothing) %></li>
         <li><%= raw @barcode_for_html.to_html %></li>
       </ul>
     <% else %>

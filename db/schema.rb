@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150115213902) do
+ActiveRecord::Schema.define(version: 20150119020138) do
 
   create_table "clothings", force: :cascade do |t|
     t.string   "clothing_code"
@@ -19,18 +19,19 @@ ActiveRecord::Schema.define(version: 20150115213902) do
     t.string   "gender"
     t.string   "color"
     t.string   "size"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+    t.boolean  "active",        default: true
   end
 
   create_table "rentals", force: :cascade do |t|
     t.integer  "user_id"
     t.datetime "start"
     t.datetime "end"
-    t.boolean  "picked_up"
+    t.boolean  "picked_up",   default: false
     t.boolean  "active",      default: true
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
     t.integer  "clothing_id"
   end
 

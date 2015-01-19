@@ -14,4 +14,32 @@ module ClothingHelper
   def find_clothing(code)
   	clothing = Clothing.where("clothing_code = ?", code).first
   end
+
+  def rent_clothing(user_id, clothing_code)
+    Rental.create(user_id: user_id, clothing_id: clothing_code)
+  end
+
+  def cancel_rental(rental_id)
+    rental = Rental.find(rental_id).update_attribute(:active, false)
+  end
+
+  def is_rented_or_reserved?(clothing_code)
+    Rental.where("active = ? AND clothing_id = ?", true, clothing_code).count > 0
+  end
+
+  def can_borrow(clothing)
+    if true
+      if logged_in?
+        if is_rented_or_reserved?(clothing)
+          "Unavailable"
+        else
+          link_to "Reserve", rent_clothing_path(clothing)
+        end
+      else
+        link_to "Log in", login_path
+      end
+    else
+      Unavailable
+    end
+  end
 end

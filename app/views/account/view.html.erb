@@ -30,6 +30,9 @@
         </div>
         </div>
       </div>
+      <% if @pick_ups != nil && @pick_ups.count > 0 %>
+        <p>You have clothing reserved that needs to be picked up!  Clothing not picked up within 48 hours will cause reservation cancellations.  After your clothign is picked up, you will then have two weeks to return it.</p>
+      <% end %>
 
       <% if @rentals != nil %>
       <div class="row table-responsive"> 
@@ -50,10 +53,10 @@
             <td><%= rental.id %></td>
             <td><%= link_to clothing_code, clothing_path(rental.clothing_id) %></td>
             <td><%= rental.start.strftime("%-m/%-d/%y at %H:%M") %></td>
-            <td><%= rental.end.strftime("%-m/%-d/%y at %H:%M") %></td>
-            <td><%= rental.picked_up %></td>
-            <td><%= rental.active %></td>
-            <td><%= link_to "Cancel Rental", "#" %></td>
+            <td style="<%= 'color: #D34747' if (rental.active && !rental.picked_up) %>"><%= rental.end.strftime("%-m/%-d/%y at %H:%M") %></td>
+            <td style="<%= 'color: #D34747' if (rental.active && !rental.picked_up) %>"><%= rental.picked_up %></td>
+            <td style="<%= 'color: green' if (rental.active)%>"><%= rental.active %></td>
+            <td><%= details(rental) %></td>
           </tr> 
         <% end %>
         

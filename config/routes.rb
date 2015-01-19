@@ -4,7 +4,6 @@ Rails.application.routes.draw do
 
   get 'account/view'
 
-
   get 'clothing/new'
 
   get 'sessions/new'
@@ -22,10 +21,12 @@ Rails.application.routes.draw do
   post '/import', to: 'borrow#import'
 
   get '/account', to: 'account#view'
-  get 'account/rent/:clothing_code', to: 'account#rent', as: :rent_clothing
+  get '/account/rent/:clothing_code', to: 'account#rent', as: :rent_clothing
+  get '/account/cancel/:rental_code', to: 'account#cancel', as: :cancel_rental
 
   get '/admin', to: 'admin#show'
   get '/admin/:subpage' => 'admin#show', as: :admin_subpage
+  post '/admin/:subpage' => 'admin#handle'
   get '/print/:rescode' => 'admin#print_res', as: :admin_print_res
   get '/print_all/', to: 'admin#print_all_labels'
 

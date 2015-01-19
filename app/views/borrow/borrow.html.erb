@@ -63,6 +63,7 @@
         </tr>
         <% if @clothing_results != nil
          @clothing_results.each do |clothing| %>
+         <% if clothing.active %>
           <tr>
             <td><%= link_to clothing.clothing_code, clothing_path(clothing.clothing_code) %></td>
             <td><%= clothing.gender %></td>
@@ -71,15 +72,16 @@
             <td><%= clothing.color %></td>
             <td><%= "none" %></td> 
             <td><%= can_borrow(clothing) %></td>
-          </tr> 
+          </tr>
+        <% end %>
         <% end 
         end %>
       </table>
     </div> 
 
 
-    <%= form_tag import_path, multipart: true do %>
+    <!-- No longer needed.  <%= form_tag import_path, multipart: true do %>
       <%= file_field_tag :file %>
       <%= submit_tag "Import CSV" %>
-    <% end %>
+    <% end %>-->
   </div>
