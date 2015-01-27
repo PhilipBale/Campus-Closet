@@ -28,6 +28,7 @@ Rails.application.routes.draw do
   get '/admin/:subpage' => 'admin#show', as: :admin_subpage
   post '/admin/:subpage' => 'admin#handle'
   get '/print/:rescode' => 'admin#print_res', as: :admin_print_res
+  get '/print_dry_clean/:rescode', to: 'admin#print_dry_clean'
   get '/print_all/', to: 'admin#print_all_labels'
   get '/show_cart/:email' => 'admin#show_cart', as: :admin_show_cart
 

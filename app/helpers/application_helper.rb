@@ -22,4 +22,8 @@ module ApplicationHelper
       barcode = Barby::Code39.new(code)
       barcode_for_html = Barby::HtmlOutputter.new(barcode)
     end
+
+    def time_format(time)
+      time.strftime("%-m/%-d/%y at %H:%M")
+  	end
 end

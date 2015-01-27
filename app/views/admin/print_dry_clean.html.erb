@@ -1,0 +1,27 @@
+<html>
+<head>
+<style>
+table.barby-barcode { border-spacing: 0;}
+tr.barby-row {}
+td.barby-cell { width: 3px; height: 100px; }
+td.barby-cell.on { background: #000;}
+body {
+	padding: 0 15px 0 15px;
+}
+ 
+@media print {
+td.barby-cell.on {   
+    background-color: #000 !important;
+                -webkit-print-color-adjust: exact; 
+}}
+</style>
+</head>
+<body onload="window.print()">
+Hamper Haven 50% Off Coupon<br/>
+<%= @user.name %><br/>
+<%= @user.email %><br />
+Expiration: <%= @rental.end.strftime("%-m/%-d/%y") %><br />
+Rental ID: <%= @rental.id %><br />
+<%= raw @barcode_for_html.to_html %>
+</body>
+</html>

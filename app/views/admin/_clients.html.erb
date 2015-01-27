@@ -18,7 +18,7 @@
             <td><%= client.email %></td>
             <td><%= client.phone %></td>
             <td><%= "Good" %></td>
-            <td><%= "Never" %></td>  
+            <td><%= get_last_rental(client) %></td>  
           </tr> 
         <% end 
         end %>

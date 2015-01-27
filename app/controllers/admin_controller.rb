@@ -8,6 +8,12 @@ class AdminController < ApplicationController
       if @subpage == "clients"
         @clients = User.all
       end
+
+      if @subpage == "reports"
+        @rentals = Rental.all.order('created_at DESC')
+        @active = @rentals.select { |rental| rental.active == true}
+        @expired = @active.select { |rental| Time.now > rental.end}
+      end
   	end
   end
 
@@ -17,6 +23,13 @@ class AdminController < ApplicationController
     @user = User.find(@rental.user_id)
   	@barcode_for_html = generate_barcode_html(pad_clothing_code(@rental.id.to_s))
   	render layout: false
+  end
+
+  def print_dry_clean
+    @rental = Rental.find(params[:rescode])
+    @user = User.find(@rental.user_id)
+    @barcode_for_html = generate_barcode_html(pad_clothing_code(@rental.id.to_s))
+    render layout: false
   end
 
   def print_all_labels

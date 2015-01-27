@@ -4,7 +4,24 @@ function printOnDemand() {
 }
 
 function printOnRent() {
+	
+}
 
+function printDryCleanOnDemand() {
+	var resCode = $('input[name="PrintDryCleaningCodeValue"]').val()
+	printDryClean(resCode);
+}
+
+function printDryClean(rentalCode) {
+	var popup = window.open('', '_blank', 'width=300,height=175')
+	$.ajax({
+	    url: "/print_dry_clean/" + rentalCode,
+	    success: function ( data, status, XHR ) {
+	        popup.document.open()
+			popup.document.write(data)
+			popup.document.close()
+	    }
+	});
 }
 
 function printReservation(resCode)

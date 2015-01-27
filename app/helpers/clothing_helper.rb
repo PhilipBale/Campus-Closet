@@ -42,4 +42,12 @@ module ClothingHelper
       Unavailable
     end
   end
+
+  def get_last_rental(user)
+    if user.rentals.last != nil
+      time_format(user.rentals.last.start)
+    else
+      "Never"
+    end
+  end
 end
