@@ -1,5 +1,6 @@
 class AdminController < ApplicationController
   include BorrowHelper
+  include ClothingHelper
 
   def show
   	if params[:subpage] != nil
@@ -78,6 +79,15 @@ class AdminController < ApplicationController
         rental.update_attribute(:active, false)
         rental.update_attribute(:end, Time.now)
         flash[:success] = "Return successfully made!"
+      end
+    elsif params[:create_rental]
+      renter = find_by_email(params[:create_rental][:email])
+      cloth = find_clothing(params[:create_rental][:clothing_code])
+      if !is_rented_or_reserved?(cloth.id) && renter != nil
+        Rental.create(user_id: renter.id, clothing_id: cloth.id)
+        flash[:success] = "Rental successfully created!"
+      else
+        flash[:danger] = "Clothing ID already rented or incorrect parameter"
       end
     end
       

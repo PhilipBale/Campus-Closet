@@ -15,16 +15,16 @@ module ClothingHelper
   	clothing = Clothing.where("clothing_code = ?", code).first
   end
 
-  def rent_clothing(user_id, clothing_code)
-    Rental.create(user_id: user_id, clothing_id: clothing_code)
+  def rent_clothing(user_id, clothing_id)
+    Rental.create(user_id: user_id, clothing_id: clothing_id)
   end
 
   def cancel_rental(rental_id)
     rental = Rental.find(rental_id).update_attribute(:active, false)
   end
 
-  def is_rented_or_reserved?(clothing_code)
-    Rental.where("active = ? AND clothing_id = ?", true, clothing_code).count > 0
+  def is_rented_or_reserved?(clothing_id)
+    Rental.where("active = ? AND clothing_id = ?", true, clothing_id).count > 0
   end
 
   def can_borrow(clothing)
