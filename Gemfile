@@ -10,6 +10,8 @@ group :production do
   gem 'unicorn'
 end
 
+gem "figaro"
+
 gem 'annotate', group: :development
  
 # Use SCSS for stylesheets
@@ -36,6 +38,9 @@ gem 'bcrypt', '~> 3.1.7'
 # Barcode api
 gem 'chunky_png'
 gem 'barby'
+
+gem 'mail_form'
+gem 'simple_form'
 
 # Use Unicorn as the app server
 # gem 'unicorn'

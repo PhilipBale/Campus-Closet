@@ -16,6 +16,9 @@ Rails.application.routes.draw do
   
   get '/sizing',   to: 'static_pages#sizing'
   get '/contact', to: 'static_pages#contact'
+  post '/user_contacts', to: 'static_pages#send_contact'
+
+
   get '/borrow', to: 'borrow#borrow'
   post '/borrow', to: 'borrow#search'
   post '/import', to: 'borrow#import'
@@ -34,6 +37,7 @@ Rails.application.routes.draw do
 
   resources :users
   resources :clothing
+  resources "contact", only: [:contact, :new, :create]
 
 
   # The priority is based upon order of creation: first created -> highest priority.
