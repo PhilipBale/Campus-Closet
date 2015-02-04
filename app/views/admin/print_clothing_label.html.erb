@@ -1,0 +1,32 @@
+<html>
+<head>
+<style>
+table.barby-barcode { border-spacing: 0;}
+tr.barby-row {}
+td.barby-cell { width: 3px; height: 90px; }
+td.barby-cell.on { background: #000;}
+body {
+	padding: 0 10px 0 0;
+}
+ 
+@media print {
+td.barby-cell.on {   
+    background-color: #000 !important;
+                -webkit-print-color-adjust: exact; 
+    page-break-inside: avoid;
+}}
+
+.cell {
+	padding: 0 15px;
+	page-break-inside: avoid;
+}
+
+</style>
+</head>
+<body onload="window.print()">
+Gender/Type: <%= @article.gender + "/" + @article.clothing_type %> <br/>
+Color/Size: <%= @article.color + "/" + @article.size %><br />
+Clothing Code: <%= @article.clothing_code %> <br />
+<%= raw (generate_barcode_html(@article.clothing_code).to_html) %>
+</body>
+</html>

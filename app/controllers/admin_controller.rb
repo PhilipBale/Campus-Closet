@@ -3,6 +3,7 @@ class AdminController < ApplicationController
   include ClothingHelper
 
   def show
+
   	if params[:subpage] != nil
   		@subpage = params[:subpage]
 
@@ -16,6 +17,9 @@ class AdminController < ApplicationController
         @expired = @active.select { |rental| Time.now > rental.end}
       end
   	end
+
+    
+
   end
 
   def print_res
@@ -35,6 +39,11 @@ class AdminController < ApplicationController
 
   def print_all_labels
     @clothing = Clothing.all
+    render layout: false;
+  end
+
+  def print_clothing_label
+    @article = find_clothing(params[:clothing_code])
     render layout: false;
   end
 
@@ -91,7 +100,12 @@ class AdminController < ApplicationController
       end
     end
       
-    
+    if params[:find_email] != nil
+      flash[:success] = "Now showing account for email: " + params[:find_email][:email]
+      redirect_to account_path(supplied_email: params[:find_email][:email])
+      return
+    end
+
     render "admin/show"
   end
 

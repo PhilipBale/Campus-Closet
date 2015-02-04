@@ -12,6 +12,19 @@ function printDryCleanOnDemand() {
 	printDryClean(resCode);
 }
 
+function printClothingLabel() {
+	var clothingCode = $('input[name="PrintClothingLabelValue"]').val()
+	var popup = window.open('', '_blank', 'width=300,height=175')
+	$.ajax({
+	    url: "/print_clothing_label/" + clothingCode,
+	    success: function ( data, status, XHR ) {
+	        popup.document.open()
+			popup.document.write(data)
+			popup.document.close()
+	    }
+	});
+}
+
 function printDryClean(rentalCode) {
 	var popup = window.open('', '_blank', 'width=300,height=175')
 	$.ajax({
