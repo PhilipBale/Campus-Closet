@@ -1,14 +1,16 @@
 <div class="rent">
 <h2>Rent Clothing</h2> 
 <div class="row">
+<%= render 'shared/error_messages' %>
 <div class="col-md-7">
-<%= form_for(:rent_clothing, html: {class: "form-inline"}) do |f| %> 
+<%= form_for(:rent_clothing, html: {class: "form-inline"},:remote => true) do |f| %> 
   <label>Rent Clothing </label><br />
+
   
   <div class="form-group input-group"> 
     <%= f.text_field :rental_id, class: "form-control", placeholder: "Rental Code" %>
   </div> 
-  <%= f.submit "Rent Clothing", class: "btn btn-primary" %>
+  <%= f.submit "Rent Clothing", class: "btn btn-primary", id: "rent_clothing", onclick: "return rentalSubmit()" %>
 <% end %>
 </div>
 
@@ -73,7 +75,27 @@
 <% end %>
 </div>
 </div>
-
+<br />
+<div class="row">
+<div class="col-md-12">
+<%= form_for(:create_user, html: {class: "form-inline"}) do |f| %> 
+  <label>Create User </label><br />
+  <div class="form-group input-group"> 
+    <%= f.text_field :name, class: "form-control", placeholder: "Name" %>
+  </div> 
+  <div class="form-group input-group"> 
+    <%= f.text_field :email, class: "form-control", placeholder: "Email" %>
+  </div> 
+  <div class="form-group input-group"> 
+    <%= f.text_field :phone, class: "form-control", placeholder: "Phone" %>
+  </div> 
+  <div class="form-group input-group"> 
+    <%= f.text_field :password, class: "form-control", placeholder: "Password" %>
+  </div> 
+  <%= f.submit "Create User", class: "btn btn-primary" %>
+<% end %>
+</div>
+</div>
 
 
 

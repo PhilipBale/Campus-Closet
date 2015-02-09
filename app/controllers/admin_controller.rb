@@ -2,9 +2,20 @@ class AdminController < ApplicationController
   include BorrowHelper
   include ClothingHelper
 
-  def show
+  before_filter :authorized?
 
+  def authorized?
+    unless current_user.admin?
+      flash[:danger] = "You are not authorized to view that page."
+      redirect_to root_path
+    else
+      @user = User.new
+    end
+  end
+
+  def show 
   	if params[:subpage] != nil
+
   		@subpage = params[:subpage]
 
       if @subpage == "clients"
@@ -17,9 +28,6 @@ class AdminController < ApplicationController
         @expired = @active.select { |rental| Time.now > rental.end}
       end
   	end
-
-    
-
   end
 
   def print_res
@@ -93,10 +101,15 @@ class AdminController < ApplicationController
       renter = find_by_email(params[:create_rental][:email])
       cloth = find_clothing(params[:create_rental][:clothing_code])
       if !is_rented_or_reserved?(cloth.id) && renter != nil
-        Rental.create(user_id: renter.id, clothing_id: cloth.id)
-        flash[:success] = "Rental successfully created!"
+        result = Rental.create(user_id: renter.id, clothing_id: cloth.id)
+        flash[:success] = "Rental #{result.id} successfully created!"
       else
         flash[:danger] = "Clothing ID already rented or incorrect parameter"
+      end
+    elsif params[:create_user]
+      @user = User.new(user_params)
+      if @user.save
+        flash[:success] = "Succesful User Registration" 
       end
     end
       
@@ -108,5 +121,11 @@ class AdminController < ApplicationController
 
     render "admin/show"
   end
+
+  private
+      def user_params
+        params.require(:create_user).permit(:name, :email, :phone, :password,
+                                     :password)
+      end
 
 end

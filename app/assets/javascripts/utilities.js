@@ -26,7 +26,10 @@ function printClothingLabel() {
 }
 
 function printDryClean(rentalCode) {
+	sleep(3000);
 	var popup = window.open('', '_blank', 'width=300,height=175')
+
+
 	$.ajax({
 	    url: "/print_dry_clean/" + rentalCode,
 	    success: function ( data, status, XHR ) {
@@ -65,3 +68,12 @@ function showCart()
 	});
 	
 }
+
+function rentalSubmit() {
+  var rentCode = $('input[name="rent_clothing[rental_id]"]').val()
+ 
+  setTimeout(function() {
+		    printDryClean(rentCode);
+        	printReservation(rentCode) 
+    }, 500);
+};
