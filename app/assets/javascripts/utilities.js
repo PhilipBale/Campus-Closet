@@ -25,8 +25,7 @@ function printClothingLabel() {
 	});
 }
 
-function printDryClean(rentalCode) {
-	sleep(3000);
+function printDryClean(rentalCode) { 
 	var popup = window.open('', '_blank', 'width=300,height=175')
 
 
