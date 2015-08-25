@@ -1,4 +1,6 @@
 module ApplicationHelper
+	require 'barby/barcode/code_39';
+
 	def full_title(page_title)
 	    base_title = "Campus Closet"
 	    if page_title.empty?
