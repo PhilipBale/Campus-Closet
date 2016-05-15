@@ -16,8 +16,7 @@ Rails.application.routes.draw do
   
   get '/sizing',   to: 'static_pages#sizing'
   get '/contact', to: 'static_pages#contact'
-  post '/user_contacts', to: 'static_pages#send_contact'
-
+  post '/user_contacts', to: 'static_pages#send_contact' 
 
   get '/borrow', to: 'borrow#borrow'
   post '/borrow', to: 'borrow#search'
